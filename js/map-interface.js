@@ -16,7 +16,12 @@ $(document).ready(function(){
     var name = $('#name').val();
     $.get('https://api.github.com/users/' + name + '/repos', function(data) {
   console.log(data);
-    $('.taylor').append('<li><a href="https://github.com/'+name+'/'+data[29].name +'">'+data[29].full_name+ '</a></li>');
+  $('.taylor').append('<li><img src='+ data[0].owner.avatar_url+'></li>');
+  for(var i = 0; i < data.length; i++)
+{
+  $('.taylor').append('<li><a href="https://github.com/'+name+'/'+data[i].name +'">'+data[i].full_name+ '</a></li>');
+}
+
 });
   })
 });
